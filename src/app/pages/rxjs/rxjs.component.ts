@@ -24,13 +24,18 @@ export class RxjsComponent implements OnInit {
                 }
 
                 if(contator === 2) {
+                    clearInterval(intervalo)
                     observer.error('Help!!')
                 }
             }, 1000)
         });
+    
+       /*  obs.pipe(
+            retry
+        ) */
+
 
         // El subscribes recive 3 callbacks
-
         obs.subscribe( 
             number => console.log('Subscription', number),    // next()
             error => console.error('Error en el obs', error), // error
